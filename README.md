@@ -1,0 +1,1 @@
+# StyleSage_data_collection_tecnical_test
