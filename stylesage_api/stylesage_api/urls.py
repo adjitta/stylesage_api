@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from music.views import get_artist, get_albums_with_songs
-
+from passphrase_validation.views import get_passphrase_validation, get_passphrase_anagram_validation
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('artists/', get_artist),
     path('albums/', get_albums_with_songs),
+    path('passphrase/basic/', get_passphrase_validation),
+    path('passphrase/advanced/', get_passphrase_anagram_validation)
 
 ]
