@@ -1,24 +1,27 @@
 from django.test import TestCase
-from services import get_count_of_basic_valid_passphrases, get_count_of_valid_advanced_passphrases
+from .services import get_count_of_basic_valid_passphrases, get_count_of_valid_advanced_passphrases
 
 
-class PassphraseValidatorTestCase(TestCase):
+class PassphraseValidationTestCase(TestCase):
     def test_get_count_of_basic(self):
         passphrase_1 = '''
         aa bb cc dd
         aa bb cc dd aa
         aa bb cc dd aaa aa
-        uu aa'''
+        uu aa
+        '''
         passphrase_2 = '''
         aa ff cc dd
         aa bb cc dd 
         aa bb cc dd aaa aa
-        uu uu aa'''
+        uu uu aa
+        '''
         passphrase_3 = '''
         aa bb cc dd
         aa bb cc dd aa
         aa bb cc dd aaa aa
-        uu uu aa'''
+        uu uu aa
+        '''
 
         self.assertEqual(get_count_of_basic_valid_passphrases(passphrase_1), 2)
         self.assertEqual(get_count_of_basic_valid_passphrases(passphrase_2), 2)
@@ -42,12 +45,3 @@ class PassphraseValidatorTestCase(TestCase):
         self.assertEqual(get_count_of_valid_advanced_passphrases(passphrase_1), 1)
         self.assertEqual(get_count_of_valid_advanced_passphrases(passphrase_2), 2)
         self.assertEqual(get_count_of_valid_advanced_passphrases(passphrase_3), 2)
-
-
-
-
-instance_basic_test = PassphraseValidatorTestCase()
-print(instance_basic_test.test_get_count_of_basic())
-
-instance_advanced_test = PassphraseValidatorTestCase()
-print(instance_basic_test.test_get_count_advanced())
