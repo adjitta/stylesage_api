@@ -12,6 +12,8 @@ def serialize_albums(album_models, fields):
         track_models = album_model.track_set.all()
         if 'songs' in fields:
             album_dict['songs'] = [model_to_dict(track_model) for track_model in track_models]
+        if 'artist_name' in fields:
+            album_dict['artist_name'] = album_model.artist_id.artist_name
         if 'track_count' in fields:
             album_dict['track_count'] = album_model.track_count
         if 'album_duration' in fields:
