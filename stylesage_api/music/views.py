@@ -11,12 +11,18 @@ def get_artist(request):
 
 
 def get_albums_with_songs(request):
+    fields = get_fields(request)
     if request.GET.get('artist_id'):
         artist_id = request.GET.get('artist_id')
-        artist_album = fetch_albums_by_artist(artist_id)
-        artist_album = serialize_albums(artist_album)
-        return JsonResponse(artist_album, safe=False)
+        albums = fetch_albums_by_artist(artist_id, fields)
     else:
-        albums = fetch_albums()
-        albums = serialize_albums(albums)
-        return JsonResponse(albums, safe=False)
+        albums = fetch_albums(fields)
+
+    albums = serialize_albums(albums, fields)
+    return JsonResponse(albums, safe=False)
+
+
+def get_fields(request):
+    fields = request.GET.get('fields', '').split(',')
+    fields = [field.strip() for field in fields]
+    return fields
