@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from music.views import get_artist, get_albums_with_songs
+from music.views import get_artist, get_albums
 from passphrase_validation.views import get_basic_passphrase_validation, get_advanced_passphrase_validation
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('artists/', get_artist),
-    path('albums/', get_albums_with_songs),
+    path('albums/', get_albums),
     path('passphrase/basic/', get_basic_passphrase_validation),
     path('passphrase/advanced/', get_advanced_passphrase_validation)
 
