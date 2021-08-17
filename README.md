@@ -4,19 +4,20 @@
 The objective of this API is to provide information on a database related to artists.
 
 **Table of Contents**
-
 1. [SetUp](#SetUp)
-2. [Create new user to access the API](#Create new user to access the API)
-3. [Structure](#Structure)
-4. [Method](#Method)
-5. [Tests](#Tests)
-6. [Command](#Tests)
+   * [Basic requirements](#basic-requirements)
+   * [Installation](#installation)
+3. [Create new user to access the API](#create-new-user-to-access-the-API)
+4. [Structure](#Structure)
+5. [Method](#Method)
+6. [Tests](#Tests)
+7. [Command](#Tests)
    
 ## SetUp
 
 ### Basic requirements
 A basic requirement to execute this project is to have a miniconda installed.
-### Instalation
+### Installation
 The first thing to do is to clone the repository:
 ```sh
 $ git clone https://github.com/adjitta/stylesage_api.git
@@ -50,11 +51,11 @@ Now you can access the django administrator.
 http://127.0.0.1:8000/admin/ 
 ```
 
-## Create new user to access the API
+## Create new user
 This API has an endpoints that only authenticated users can use the API services, for these reasons is necessary to access the django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
 
-![Alt text](/home/adja/stylesage_api/screenshots/image.png "Django admistration")
-![Alt text](/home/adja/stylesage_api/screenshots/image2.png "Django admistration")
+![Admin django](/screenshots/image.png)
+![Admin django](/screenshots/image2.png)
 
 ## Structure
 In  API, endpoints (URLs) define the structure of the API and how end users access data from our application using the HTTP methods - GET, POST, PUT, DELETE. Endpoints should be logically organized around _collections_ and _elements_, both of which are resources.
@@ -136,4 +137,4 @@ To have the artists 'images available in the database, I have created a django c
 ```sh
 (stylesage_api_env)$ python manage.py add_images
 ```
-![Alt text](/home/adja/stylesage_api/screenshots/url.png "add image")
+![Admin django](/screenshots/url.png)
