@@ -1,22 +1,17 @@
 # STYLESAGE TEST
 
-<summary>Table of Contents</summary>
-
-[Goal](#Goal)
-[Getting Started](#Getting Started)
-   1. [SetUp](#SetUp)
-      * [Basic requirements](#Basic requirements)
-      
-      * [Installation](#Instalation)
-      
-   2. [Create new user to access the API](#Create new user to access the API)
-   3. [Structure](#Structure)
-   4. [Method](#Method)
-   5. [Tests](#Tests)
-   6. [Command](#Tests)
-
 ## Goal
 The objective of this API is to provide information on a database related to artists.
+
+**Table of Contents**
+
+1. [SetUp](#SetUp)
+2. [Create new user to access the API](#Create new user to access the API)
+3. [Structure](#Structure)
+4. [Method](#Method)
+5. [Tests](#Tests)
+6. [Command](#Tests)
+   
 ## Getting Started
 
 ### SetUp
