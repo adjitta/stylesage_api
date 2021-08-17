@@ -51,7 +51,7 @@ Now you can access the django administrator.
 http://127.0.0.1:8000/admin/ 
 ```
 
-## Create new user
+## Create new user to access the API
 This API has an endpoints that only authenticated users can use the API services, for these reasons is necessary to access the django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
 
 ![Admin django](/screenshots/image.png)
