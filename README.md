@@ -15,9 +15,7 @@ The objective of this API is to provide information on a database related to art
 ## SetUp
 
 ### Basic requirements
-
 A basic requirement to execute this project is to have a miniconda installed.
-
 ### Instalation
 The first thing to do is to clone the repository:
 ```sh
@@ -46,14 +44,15 @@ First, we have to start up Django's development server.
 ``` sh
 (stylesage_api_env)$ python manage.py runserver
 ```
-Now you can access the django administrator.
 
+Now you can access the django administrator.
 ```
 http://127.0.0.1:8000/admin/ 
 ```
-## Create new user to access the API
 
-This API have a  endpoints that only authenticated users can use the API services, for this reasons is necessary to access the django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
+## Create new user to access the API
+This API has an endpoints that only authenticated users can use the API services, for these reasons is necessary to access the django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
+
 ![Alt text](/home/adja/stylesage_api/screenshots/image.png "Django admistration")
 ![Alt text](/home/adja/stylesage_api/screenshots/image2.png "Django admistration")
 
@@ -116,7 +115,9 @@ HTTP/1.1 200 OK
    },
 ]
 ```
+
 Other response
+
 ```
 200: The request was successfully
 400: Bad request
