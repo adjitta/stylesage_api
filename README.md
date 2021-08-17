@@ -2,10 +2,16 @@
 
 <summary>Table of Contents</summary>
 
-1. [Goal](#Goal)
-2. [Getting Started](##Getting Started)
+[Goal](#Goal)
+[Getting Started](#Getting Started)
    1. [SetUp](#SetUp)
-      *
+      * [Basic requirements](#Basic requirements)
+      * [Instalation](#Instalation)
+   2. [Create new user to access the API](#Create new user to access the API)
+   3. [Structure](#Structure)
+   4. [Method](#Method)
+   5. [Tests](#Tests)
+   6. [Command](#Tests)
 
 ## Goal
 The objective of this API is to provide information on a database related to artists.
@@ -44,14 +50,17 @@ First, we have to start up Django's development server.
 ``` sh
 (stylesage_api_env)$ python manage.py runserver
 ```
-Now you can access the django administrator http://127.0.0.1:8000/admin/ 
+Now you can access the django administrator.
 
-#### Create new user to access the API
+```
+http://127.0.0.1:8000/admin/ 
+```
+### Create new user to access the API
 This API have a  endpoints that only authenticated users can use the API services, for this reasons is necessary to access the django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
 ![Alt text](/home/adja/stylesage_api/screenshots/image.png "Django admistration")
 ![Alt text](/home/adja/stylesage_api/screenshots/image2.png "Django admistration")
 
-#### Structure
+### Structure
 In a API, endpoints (URLs) define the structure of the API and how end users access data from our application using the HTTP methods - GET, POST, PUT, DELETE. Endpoints should be logically organized around _collections_ and _elements_, both of which are resources.
 
 In our case, we have many resource, `songs,albums and artists`.
@@ -78,7 +87,7 @@ Fields
 `longest_track_duration`
 `shortest_track_duration`
 
-#### Method
+### Method
 Request:
 
 List of artists
@@ -118,12 +127,12 @@ Other response
 500: Server Error
 ```
 
-#### Tests
+### Tests
 To run the tests in this project you will have to execute the following command:
 ```sh
 (stylesage_api_env)$ python manage.py test
 ```
-#### Command
+### Command
 
 To have the artists 'images available in the database, I have created a django command whose main function is to scrape the urls with the artists' images and save that information in the database in the media_url field.
 ```sh
