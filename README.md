@@ -6,7 +6,9 @@
 [Getting Started](#Getting Started)
    1. [SetUp](#SetUp)
       * [Basic requirements](#Basic requirements)
-      * [Instalation](#Instalation)
+      
+      * [Installation](#Instalation)
+      
    2. [Create new user to access the API](#Create new user to access the API)
    3. [Structure](#Structure)
    4. [Method](#Method)
