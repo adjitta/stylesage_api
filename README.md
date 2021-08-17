@@ -12,14 +12,13 @@ The objective of this API is to provide information on a database related to art
 5. [Tests](#Tests)
 6. [Command](#Tests)
    
-## Getting Started
+## SetUp
 
-### SetUp
+### Basic requirements
 
-#### Basic requirements
 A basic requirement to execute this project is to have a miniconda installed.
 
-#### Instalation
+### Instalation
 The first thing to do is to clone the repository:
 ```sh
 $ git clone https://github.com/adjitta/stylesage_api.git
@@ -52,13 +51,14 @@ Now you can access the django administrator.
 ```
 http://127.0.0.1:8000/admin/ 
 ```
-### Create new user to access the API
+## Create new user to access the API
+
 This API have a  endpoints that only authenticated users can use the API services, for this reasons is necessary to access the django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
 ![Alt text](/home/adja/stylesage_api/screenshots/image.png "Django admistration")
 ![Alt text](/home/adja/stylesage_api/screenshots/image2.png "Django admistration")
 
-### Structure
-In a API, endpoints (URLs) define the structure of the API and how end users access data from our application using the HTTP methods - GET, POST, PUT, DELETE. Endpoints should be logically organized around _collections_ and _elements_, both of which are resources.
+## Structure
+In  API, endpoints (URLs) define the structure of the API and how end users access data from our application using the HTTP methods - GET, POST, PUT, DELETE. Endpoints should be logically organized around _collections_ and _elements_, both of which are resources.
 
 In our case, we have many resource, `songs,albums and artists`.
 
@@ -124,12 +124,12 @@ Other response
 500: Server Error
 ```
 
-### Tests
+## Tests
 To run the tests in this project you will have to execute the following command:
 ```sh
 (stylesage_api_env)$ python manage.py test
 ```
-### Command
+## Command
 
 To have the artists 'images available in the database, I have created a django command whose main function is to scrape the urls with the artists' images and save that information in the database in the media_url field.
 ```sh
