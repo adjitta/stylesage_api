@@ -1,7 +1,7 @@
 ![Portada](/screenshots/portada.png)
 
-## Goal 
-The objective of this API is to provide information on a database related to artists.
+## About this proyect 💬
+StyleSage API build with Django that provides music data and passphrase validation support
 
 **Table of Contents**
 1. [Setup](#Setup)
@@ -10,8 +10,11 @@ The objective of this API is to provide information on a database related to art
 2. [Create new user to access the API](#create-new-user-to-access-the-API)
 3. [Database population](#data-base-population)
 4. [API](#API)
-   * [Requirements](#requirements)
-   * [Installation](#installation)
+   * [Examples with curl](#example-with-curl)
+      * [List of artists](#list-of-artists)
+      * [List of albums](#list-of-albums)
+      * [Basic passphrase validation](#basic-passphrase-validation)
+      * [Advanced passphrase validation](#advanced-passphrase-validation)
 5. [Tests](#Tests)
 6. [Web scrapping to get artists images](#web-scraping-to-get-artists-images)
    
@@ -52,7 +55,7 @@ Now you can access the django administrator.
 http://127.0.0.1:8000/admin/ 
 ```
 
-## Create new user to access the API
+## Create new user to access the API 📝
 This API has an endpoints that only authenticated users can use the API services, for these reasons is necessary to access the django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
 
 ![Admin django](/screenshots/image.png)
@@ -61,7 +64,7 @@ This API has an endpoints that only authenticated users can use the API services
 ## Database population
 Django admin can be used to add data in to database.
 
-## API
+## API 🔭
 Endpoint |HTTP Method | Authentication | Result | Filters (Optional) | Fields (Optional)
 -- | -- |-- |-- |-- |--
 `artists/` | GET | No | Get all artists
