@@ -4,24 +4,25 @@
 StyleSage API build with Django that provides music data and passphrase validation support
 
 **Table of Contents**
-1. [Setup](#Setup)
-   * [Requirements](#requirements)
-   * [Installation](#installation)
-2. [Create new user to access the API](#create-new-user-to-access-the-API)
-3. [Database population](#data-base-population)
-4. [API](#API)
+1. [Setup :arrow_forward:](#Setup)
+   * [Requirements 📋](#requirements)
+   * [Installation 🔧](#installation)
+2. [Create new user to access the API 📝](#create-new-user-to-access-the-API)
+3. [Database population :computer:](#data-base-population)
+4. [API :page_with_curl:](#API)
    * [Examples with curl](#example-with-curl)
       * [List of artists](#list-of-artists)
       * [List of albums](#list-of-albums)
       * [Basic passphrase validation](#basic-passphrase-validation)
       * [Advanced passphrase validation](#advanced-passphrase-validation)
-5. [Tests](#Tests)
-6. [Web scrapping to get artists images](#web-scraping-to-get-artists-images)
+5. [Tests ⚙](#Tests)
+6. [Web scrapping to get artists images :robot:](#web-scraping-to-get-artists-images)
    
 ## Setup :arrow_forward:
 
 ### Requirements 📋
 We assume that you have [miniconda](https://docs.conda.io/en/latest/miniconda.html) installed on your computer.
+
 ### Installation 🔧
 The first thing to do is to clone the repository:
 ```sh
@@ -50,21 +51,21 @@ First, we have to start up Django's development server.
 (stylesage_api_env)$ python manage.py runserver
 ```
 
-Now you can access the django administrator.
+Now you can access the Django administrator.
 ```
 http://127.0.0.1:8000/admin/ 
 ```
 
 ## Create new user to access the API 📝
-This API has an endpoints that only authenticated users can use the API services, for these reasons is necessary to access the django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
+This API has an endpoints that only authenticated users can use the API services, for these reasons is necessary to access the Django admin select in the users section ‘Add’ and create a new user and password. these will be your credentials to access the API
 
-![Admin django](/screenshots/image.png)
-![Admin django](/screenshots/image2.png)
+![Admin Django](/screenshots/image.png)
+![Admin Django](/screenshots/image2.png)
 
-## Database population
+## Database population :computer:
 Django admin can be used to add data in to database.
 
-## API 🔭
+## API :page_with_curl:
 Endpoint |HTTP Method | Authentication | Result | Filters (Optional) | Fields (Optional)
 -- | -- |-- |-- |-- |--
 `artists/` | GET | No | Get all artists
@@ -165,7 +166,7 @@ To run the tests in this project you will have to execute the following command:
 ```
 They are unit tests that ensure the passphrase validation algorithms implementatione_api_env)$ python manage.py test
 
-## Web scrapping to get artists images
+## Web scrapping to get artists images :robot:
 To have the artists images available in the database, there is available a Django command whose main function is to scrape the media urls with the artists images from https://www.allmusic.com and save them in the database, in the media_url field, which is also available into artist API resource.
 ```sh
 (stylesage_api_env)$ python manage.py add_images
