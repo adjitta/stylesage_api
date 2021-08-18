@@ -15,7 +15,7 @@ StyleSage API build with Django that provides music data and passphrase validati
       * [List of albums](#list-of-albums)
       * [Basic passphrase validation](#basic-passphrase-validation)
       * [Advanced passphrase validation](#advanced-passphrase-validation)
-5. [Tests ⚙](#Tests)
+5. [Tests ⚙](#Tests-⚙)
 6. [Web scrapping to get artists images :robot:](#web-scrapping-to-get-artists-images-:robot:)
    
 ## Setup :arrow_forward:
