@@ -4,19 +4,19 @@
 StyleSage API build with Django that provides music data and passphrase validation support
 
 **Table of Contents**
-1. [Setup :arrow_forward:](#Setup-:arrow_forward:)
+1. [Setup :arrow_forward:](#setup-arrow_forward)
    * [Requirements 📋](#requirements-)
-   * [Installation 🔧](#Installation-🔧)
-2. [Create new user to access the API 📝](#Create-new-user-to-access-the-API-📝)
-3. [Database population :computer:](#database-population-:computer:)
-4. [API :page_with_curl:](#API-:page_with_curl:)
-   * [Examples with curl](#Examples-with-curl)
+   * [Installation 🔧](#installation-)
+2. [Create new user to access the API 📝](#create-new-user-to-access-the-api-)
+3. [Database population :computer:](database-population-computer)
+4. [API :page_with_curl:](#api-page_with_curl)
+   * [Examples with curl](#examples-with-curl)
       * [List of artists](#list-of-artists)
       * [List of albums](#list-of-albums)
       * [Basic passphrase validation](#basic-passphrase-validation)
       * [Advanced passphrase validation](#advanced-passphrase-validation)
-5. [Tests ⚙](#Tests-⚙)
-6. [Web scrapping to get artists images :robot:](#web-scrapping-to-get-artists-images-:robot:)
+5. [Tests ⚙](#tests-)
+6. [Web scrapping to get artists images :robot:](#web-scrapping-to-get-artists-images-robot)
    
 ## Setup :arrow_forward:
 
