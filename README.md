@@ -59,38 +59,25 @@ This API has an endpoints that only authenticated users can use the API services
 ![Admin django](/screenshots/image2.png)
 
 ## Database population
+Django admin can be used to add data in to database.
 
 ## API
-Endpoint |HTTP Method | Authentication | Result | Filters | Fields
--- | -- |-- |--
+Endpoint |HTTP Method | Authentication | Result | Filters (Optional) | Fields (Optional)
+-- | -- |-- |-- |-- |--
 `artists/` | GET | No | Get all artists
-`albums/` | GET | Basic | Get albums information | `artist_id` | `songs`,`artist_name`,`track_count`,`album_duration`,`longest_track_duration`,`shortest_track_duration`
+`albums/` | GET | Basic | Get albums information | `artist_id` |`songs`<br />`artist_name`<br />`track_count`<br />`album_duration`<br />`longest_track_duration`<br />`shortest_track_duration`
 `passphrase/basic/ `| GET | No | Get count of valid basic passphrases.
 `passphrase/advanced/ ` | GET | No |Get count of valid advanced passphrases.
 
-#### Example with curl
-Request:
+### Examples with curl
 
-List of artists
+#### List of artists
 ```
-curl --location --request GET 'http://127.0.0.1:8080/artists/' \
---data-raw ''
+curl --request GET 'http://127.0.0.1:8080/artists/'
 ```
-
-Response
-
-If response is ok, the API response is :
 
 ```
 HTTP/1.1 200 OK
-< Date: Tue, 17 Aug 2021 14:28:34 GMT
-< Server: WSGIServer/0.2 CPython/3.9.6
-< Content-Type: application/json
-< X-Frame-Options: DENY
-< Content-Length: 464
-< X-Content-Type-Options: nosniff
-< Referrer-Policy: same-origin
-
 
 [
    {
@@ -101,13 +88,71 @@ HTTP/1.1 200 OK
 ]
 ```
 
-Other response
+#### List of albums
+To add the autorization you need to encode in Base64 your credentials (in the format 'user:password'). You could do it online with [Base64](https://www.base64encode.org/)
+```
+curl --request GET 'http://127.0.0.1:8080/albums?artist_id=1414&fields=songs,artist_name,track_count,album_duration' \
+--header 'Authorization: Basic c3R5bGVzYWdlOkNvY29sb2NvMTk5NCoqKio=' \
+```
 
 ```
-200: The request was successfully
-400: Bad request
-401: Unauthorized.The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource.
-500: Server Error
+HTTP/1.1 200 OK
+[
+    {
+        "album_id": 2020,
+        "artist_id": 1414,
+        "album_name": "cuidate",
+        "songs": [
+            {
+                "album_id": 2020,
+                "track_id": 3737,
+                "name_track": "temblando",
+                "milliseconds": 8
+            },
+            {
+                "album_id": 2020,
+                "track_id": 4040,
+                "name_track": "brown",
+                "milliseconds": 3
+            }
+        ],
+        "artist_name": "Rosalia",
+        "track_count": 2,
+        "album_duration": 11
+    }
+]
+```
+
+#### Basic passphrase validation
+
+```
+curl --request GET 'http://127.0.0.1:8080/passphrase/basic/' \
+--header 'Content-Type: text/plain' \
+--data-raw 'aa bb cc dd
+aa bb cc dd aa
+aa bb cc dd aaa aa
+uu aa'
+```
+
+```
+HTTP/1.1 200 OK
+2
+```
+
+#### Advanced passphrase validation
+
+```
+curl --request GET 'http://127.0.0.1:8080/passphrase/advanced/' \
+--header 'Content-Type: text/plain' \
+--data-raw 'abcde fghij
+abcde xyz
+a ab abc abd abf abj abj
+iiii oiii ooii oooi oooo'
+```
+
+```
+HTTP/1.1 200 OK
+3
 ```
 
 ## Tests ⚙
@@ -121,6 +166,7 @@ They are unit tests that ensure the passphrase validation algorithms implementat
 To have the artists images available in the database, there is available a Django command whose main function is to scrape the media urls with the artists images from https://www.allmusic.com and save them in the database, in the media_url field, which is also available into artist API resource.
 ```sh
 (stylesage_api_env)$ python manage.py add_images
+Adding https://rovimusic.rovicorp.com/image.jpg?c=wooGclVQX1HQRLANB6YAXj6KsMttLlyBmmVTZ6_CLs0=&f=4 to Amaral
 ```
 
-![Admin django](/screenshots/url.png)
+
