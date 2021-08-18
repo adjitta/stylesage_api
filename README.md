@@ -1,23 +1,25 @@
 # STYLESAGE TEST
 
-## Goal
+## Goal 
 The objective of this API is to provide information on a database related to artists.
 
 **Table of Contents**
-1. [SetUp](#SetUp)
-   * [Basic requirements](#basic-requirements)
+1. [Setup](#Setup)
+   * [Requirements](#requirements)
    * [Installation](#installation)
-3. [Create new user to access the API](#create-new-user-to-access-the-API)
-4. [Structure](#Structure)
-5. [Method](#Method)
-6. [Tests](#Tests)
-7. [Command](#Tests)
+2. [Create new user to access the API](#create-new-user-to-access-the-API)
+3. [Database population](#data-base-population)
+4. [API](#API)
+   * [Requirements](#requirements)
+   * [Installation](#installation)
+5. [Tests](#Tests)
+6. [Web scrapping to get artists images](#web-scraping-to-get-artists-images)
    
-## Setup
+## Setup :arrow_forward:
 
-### Requirements
+### Requirements 📋
 We assume that you have [miniconda](https://docs.conda.io/en/latest/miniconda.html) installed on your computer.
-### Installation
+### Installation 🔧
 The first thing to do is to clone the repository:
 ```sh
 $ git clone https://github.com/adjitta/stylesage_api.git
@@ -35,11 +37,10 @@ When you finish installing the dependencies navigate to the project folder:
 ```sh
 (stylesage_api_env)$ cd stylesage_api/stylesage_api
 ``` 
-Now make the django migrate and create a super user
+Now, run the Django migrate to create the tables into the database and create a super user to access the admin site:
 ```sh
-(stylesage_api_env)$ cd stylesage_api/stylesage_api
-(stylesage_api_env)$ manage.py migrate
-(stylesage_api_env)$ manage.py createsuperuser
+(stylesage_api_env)$ python manage.py migrate
+(stylesage_api_env)$ python manage.py createsuperuser
 ``` 
 First, we have to start up Django's development server.
 ``` sh
@@ -57,34 +58,17 @@ This API has an endpoints that only authenticated users can use the API services
 ![Admin django](/screenshots/image.png)
 ![Admin django](/screenshots/image2.png)
 
-## Structure
-In  API, endpoints (URLs) define the structure of the API and how end users access data from our application using the HTTP methods - GET, POST, PUT, DELETE. Endpoints should be logically organized around _collections_ and _elements_, both of which are resources.
+## Database population
 
-In our case, we have many resource, `songs,albums and artists`.
-
-Endpoint |HTTP Method | Authentication | Result
+## API
+Endpoint |HTTP Method | Authentication | Result | Filters | Fields
 -- | -- |-- |--
 `artists/` | GET | No | Get all artists
-`albums/` | GET | Basic | Get albums informations
+`albums/` | GET | Basic | Get albums information | `artist_id` | `songs`,`artist_name`,`track_count`,`album_duration`,`longest_track_duration`,`shortest_track_duration`
 `passphrase/basic/ `| GET | No | Get count of valid basic passphrases.
 `passphrase/advanced/ ` | GET | No |Get count of valid advanced passphrases.
 
-The albums/ endpoints accepts filter and also allows you to select the fields you want to include.
-
-Filter
---|
-`artist_id`
-
-Fields
---|
-`songs`
-`artist_name`
-`track_count`
-`album_duration`
-`longest_track_duration`
-`shortest_track_duration`
-
-### Method
+#### Example with curl
 Request:
 
 List of artists
@@ -126,11 +110,12 @@ Other response
 500: Server Error
 ```
 
-## Tests
+## Tests ⚙
 To run the tests in this project you will have to execute the following command:
 ```sh
-(stylesage_api_env)$ python manage.py test
+(stylesage_api_env)$ python manage.py test passphrase_validation.tests
 ```
+They are unit tests that ensure the passphrase validation algorithms implementatione_api_env)$ python manage.py test
 
 ## Web scrapping to get artists images
 To have the artists images available in the database, there is available a Django command whose main function is to scrape the media urls with the artists images from https://www.allmusic.com and save them in the database, in the media_url field, which is also available into artist API resource.
