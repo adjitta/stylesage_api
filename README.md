@@ -1,4 +1,4 @@
-# STYLESAGE TEST
+![Portada](/screenshots/portada.png)
 
 ## Goal 
 The objective of this API is to provide information on a database related to artists.
