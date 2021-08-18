@@ -13,10 +13,10 @@ The objective of this API is to provide information on a database related to art
 6. [Tests](#Tests)
 7. [Command](#Tests)
    
-## SetUp
+## Setup
 
-### Basic requirements
-A basic requirement to execute this project is to have a miniconda installed.
+### Requirements
+We assume that you have [miniconda](https://docs.conda.io/en/latest/miniconda.html) installed on your computer.
 ### Installation
 The first thing to do is to clone the repository:
 ```sh
