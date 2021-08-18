@@ -131,10 +131,11 @@ To run the tests in this project you will have to execute the following command:
 ```sh
 (stylesage_api_env)$ python manage.py test
 ```
-## Command
 
-To have the artists 'images available in the database, I have created a django command whose main function is to scrape the urls with the artists' images and save that information in the database in the media_url field.
+## Web scrapping to get artists images
+To have the artists images available in the database, there is available a Django command whose main function is to scrape the media urls with the artists images from https://www.allmusic.com and save them in the database, in the media_url field, which is also available into artist API resource.
 ```sh
 (stylesage_api_env)$ python manage.py add_images
 ```
+
 ![Admin django](/screenshots/url.png)
