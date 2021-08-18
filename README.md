@@ -5,7 +5,7 @@ StyleSage API build with Django that provides music data and passphrase validati
 
 **Table of Contents**
 1. [Setup :arrow_forward:](#Setup-:arrow_forward:)
-   * [Requirements 📋](#Requirements-📋)
+   * [Requirements 📋](#requirements-)
    * [Installation 🔧](#Installation-🔧)
 2. [Create new user to access the API 📝](#Create-new-user-to-access-the-API-📝)
 3. [Database population :computer:](#database-population-:computer:)
